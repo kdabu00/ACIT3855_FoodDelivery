@@ -2,9 +2,9 @@ import connexion
 from connexion import NoContent
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from storage.base import Base
-from storage.pickup import Pickup
-from storage.delivery import Delivery
+from base import Base
+from pickup import Pickup
+from delivery import Delivery
 import yaml
 import logging.config
 import logging
