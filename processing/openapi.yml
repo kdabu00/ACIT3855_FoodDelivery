@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  description: This API provides event stats
+  version: "1.0.0"
+  title: Stats API
+  contact:
+    email: kevin_dabu@hotmail.com
+paths:
+  /stats:
+    get:
+      summary: Gets the event stats
+      operationId: app.get_stats
+      description: Gets Delivery and Pickup order processsed statistics
+      responses:
+        '200':
+          description: Successfully returned a list of order events
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/OrderStats'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    OrderStats:
+      required:
+      - num_delivery_orders
+      - num_pickup_orders
+      properties:
+        num_delivery_orders:
+          type: integer
+          example: 1000
+        num_pickup_orders:
+          type: integer
+          example: 1000
+      type: object

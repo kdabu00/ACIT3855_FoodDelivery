@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  description: This is a food delivery management application
+  version: "1.0.0"
+  title: Food Delivery API
+  contact:
+    email: kevin_dabu@hotmail.com
+tags:
+  - name: methods
+    description: Methods of delivery available for orders
+paths:
+  /orders/pickup:
+#    post:
+#      tags:
+#        - methods
+#      summary: reports an order requesting in person pickup
+#      operationId: app.report_pickup_order
+#      description: Adds a new pickup order to the system
+#      responses:
+#        '201':
+#          description: Pickup Order Created
+#        '400':
+#          description: Invalid Pickup Order
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/PickupOrder'
+#        description: Pickup order to add
+    get:
+      tags:
+        - methods
+      summary: gets new pickup orders
+      operationId: app.get_pickup_orders
+      description: Gets pickup orders added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: '%Y-%m-%d %H:%M:%S'
+            example: 2021-02-17 23:05:40
+      responses:
+        '200':
+          description: Successfully returned a list of pickup orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PickupOrder'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /orders/delivery:
+#    post:
+#      tags:
+#        - methods
+#      summary: reports an order requesting delivery
+#      operationId: app.report_delivery_order
+#      description: Adds a new delivery order to the system
+#      responses:
+#        '201':
+#          description: Delivery Order Created
+#        '400':
+#          description: Invalid Delivery Order
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/DeliveryOrder'
+#        description: Delivery order to add
+    get:
+      tags:
+        - methods
+      summary: gets new delivery orders
+      operationId: app.get_delivery_orders
+      description: Gets delivery orders added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a  page
+          schema:
+            type: string
+            format: '%Y-%m-%d %H:%M:%S'
+            example: 2021-02-17 23:05:40
+      responses:
+        '200':
+          description: Successfully returned a list of delivery orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeliveryOrder'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    PickupOrder:
+      required:
+        - customer_id
+        - order_id
+      properties:
+        customer_id:
+          type: string
+          example: CUSTOMER_00000
+        order_id:
+          type: string
+          example: ORDER_00000
+      type: object
+
+    DeliveryOrder:
+      required:
+        - customer_id
+        - order_id
+        - driver_id
+      properties:
+        customer_id:
+          type: string
+          example: CUS_00000
+        driver_id:
+          type: string
+          example: DRIVER_000
+        order_id:
+          type: string
+          example: ORDER_00000
+      type: object

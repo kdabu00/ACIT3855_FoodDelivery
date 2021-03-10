@@ -1,0 +1,11 @@
+version: 1
+datastore:
+  user: root
+  password: P@ssw0rd
+  hostname: mysql-food-delivery-app-lab6.eastus2.cloudapp.azure.com
+  port: '3306'
+  db: events
+events:
+ hostname: mysql-food-delivery-app-lab6.eastus2.cloudapp.azure.com
+ port: 9092
+ topic: events
