@@ -76,7 +76,7 @@ def get_delivery_order(index):
                 messages.append(msg)
         logger.info('Total delivery orders: %d' % len(messages))
         if index < len(messages):
-            return messages[index], 200
+            return messages[index]['payload'], 200
     except:
         logger.error("No more messages found")
 
