@@ -50,7 +50,6 @@ services:
    - "8080:8080"
   depends_on:
    - "kafka"
-  hostname: receiver
 
  storage:
   image: storage
@@ -58,14 +57,12 @@ services:
    - "8090:8090"
   depends_on:
    - "kafka"
-  hostname: storage
 
  processing:
   image: processing
   network_mode: "host"
   depends_on:
    - "storage"
-  hostname: processing
 
  audit_log:
   image: audit_log
@@ -73,7 +70,6 @@ services:
    - "8110:8110"
   depends_on:
    - "kafka"
-  hostname: audit_log
   
 volumes:
  my-db:
