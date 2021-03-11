@@ -1,8 +1,4 @@
 version: 1
-eventstore1:
- url: http://localhost:8090/orders/pickup
-eventstore2:
- url: http://localhost:8090/orders/delivery
 events:
  hostname: mysql-food-delivery-app-lab6.eastus2.cloudapp.azure.com
  port: '9092'
