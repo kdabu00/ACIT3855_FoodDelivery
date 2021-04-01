@@ -33,25 +33,16 @@ export default function AppStats() {
             <div>
                 <h1>Latest Stats</h1>
                 <table className={"StatsTable"}>
-					<tbody>
-						<tr>
-							<th>Blood Pressure</th>
-							<th>Heart Rate</th>
-						</tr>
-						<tr>
-							<td># BP: {stats['num_bp_readings']}</td>
-							<td># HR: {stats['num_hr_readings']}</td>
-						</tr>
-						<tr>
-							<td colspan="2">Max BP Systolic: {stats['max_bp_sys_reading']}</td>
-						</tr>
-						<tr>
-							<td colspan="2">Max BR Diastolic: {stats['max_bp_dia_reading']}</td>
-						</tr>
-						<tr>
-							<td colspan="2">Max HR: {stats['max_bp_sys_reading']}</td>
-						</tr>
-					</tbody>
+                                        <tbody>
+                                                <tr>
+                                                        <th>Delivery Order</th>
+                                                        <th>Pickup Order</th>
+                                                </tr>
+                                                <tr>
+                                                        <td># DO: {stats['num_delivery_orders']}</td>
+                                                        <td># PO: {stats['num_pickup_orders']}</td>
+                                                </tr>
+                                        </tbody>
                 </table>
                 <h3>Last Updated: {stats['last_updated']}</h3>
 
