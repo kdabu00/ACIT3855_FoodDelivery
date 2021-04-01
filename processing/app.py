@@ -66,7 +66,7 @@ def populate_stats():
 
 def get_stats():
     logger.info('Requesting Stats')
-    if not os.path.exists('data.json'):
+    if not os.path.exists(app_config['datastore']['filename']):
         logger.error('Statistics do not exist')
         return NoContent, 404
     else:
